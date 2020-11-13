@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import { HashRouter, Switch } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import config from './router/router.js'
 import RouterView from './router/index.js'
 
@@ -37,9 +37,7 @@ ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <HashRouter >
-        <Switch>
-          < RouterView routers={config} />
-        </Switch>
+        < RouterView routers={config} />
       </HashRouter >
     </PersistGate>
   </Provider>,

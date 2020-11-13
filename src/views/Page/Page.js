@@ -14,15 +14,21 @@ class Page extends React.Component {
     }
   }
   componentWillMount() {
-    console.log(this.state)
-    console.log(this.props)
+    // console.log(this.state)
+    // console.log(this.props)
     // console.log(store.getState())
   }
   render() {
     return (
       <div>
-        这里是Page页面
-        <br />
+        <h1>这里是Page页面</h1>
+        <div>
+          <h3>这里是子页面</h3>
+          {
+            this.props.routes ? < RouterView routers={this.props.routes} /> : null
+          }
+        </div>
+        {/* <br />
         这里是子页面
         {
           this.props.routes ? < RouterView routers={this.props.routes} /> : null
@@ -37,9 +43,15 @@ class Page extends React.Component {
         <p>name: {this.props.homeData.name}</p>
         <button onClick={() => {
           this.props.setHomeName('homeNew')
-        }}>change store homeReducer name</button>
+        }}>change store homeReducer name</button> */}
+        {/* <button onClick={() => { this.handlePageChange() }}> 页面跳转 </button> */}
       </div>
     )
+  }
+
+  handlePageChange() {
+    console.log(this.props.history)
+    this.props.history.push('/demo')
   }
 }
 
