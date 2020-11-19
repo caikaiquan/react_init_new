@@ -8,6 +8,8 @@ import Home from '../views/Home/Home'
 import HomeChild1 from '../views/Home/HomeChild1'
 import HomeChild2 from '../views/Home/HomeChild2'
 
+import Hook from '../views/Hook/hook.js'
+
 const routes = [
   {
     path: '/',
@@ -56,6 +58,10 @@ const routes = [
         component: HomeChild2
       }
     ]
+  },
+  {
+    path: '/hook',
+    component: Hook
   },
   {
     redirect: '/'

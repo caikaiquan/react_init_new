@@ -3,11 +3,22 @@ import { Button } from 'antd';
 // import logo from './logo.svg';
 import './App.css';
 import BaseParam from '../../plugins/config'
-
+import { connect } from 'react-redux'
+import { handleLogin } from '../../store/demo.reducer.js'
 
 console.log(BaseParam)
 
-export default class App extends React.Component {
+class App extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {}
+    this.handleLogin = this.handleLogin.bind(this)
+  }
+
+  UNSAFE_componentWillMount(){
+    // console.log(111, this.props)
+  }
+
   render() {
     return (
       <div className="App">
@@ -17,8 +28,19 @@ export default class App extends React.Component {
         <br />
         <Button type="text">Text Button</Button>
         <Button type="link">Link Button</Button>
+        <br />
+        <Button type='primary' onClick={this.handleLogin}>模拟登陆</Button>
       </div>
     )
+  }
+
+
+  handleLogin() {
+    let userInfo = {
+      user:"张三丰",
+      id:'110'
+    }
+    this.props.handleLogin(userInfo)
   }
   // return (
   //   <div className="App">
@@ -40,5 +62,9 @@ export default class App extends React.Component {
   //   </div>
   // );
 }
+
+App = connect(state => ({ demoData: state.demoReducer }), {  handleLogin })(App)
+
+export default App
 
 

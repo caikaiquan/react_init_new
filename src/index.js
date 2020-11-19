@@ -37,7 +37,7 @@ ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <HashRouter >
-        < RouterView routers={config} />
+        < RouterView routers={config}/>
       </HashRouter >
     </PersistGate>
   </Provider>,
